@@ -26,7 +26,7 @@ class Foo(object):
 foo = Foo(frst=1)
 ```
 
-This tiny package tries to warn about such typical errors. First it takes an attempt to find out what the actual keyword argument names are, either matching bytecode patterns in the output of `inspect.get_instructions()` on Python >3.4 or falling back to applying regular expressions on `inspect.getsourcelines()`. Then it builds the matrix of differences between those "real" names and the names which were actually passed in. The difference is calculated with [Damerau–Levenshtein distance](http://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance) algorithm and the excellent [pyxDamerauLevenshtein](https://github.com/gfairchild/pyxDamerauLevenshtein) library. Last, it warns about given args which are not similar to anything and similar to something.
+This tiny package tries to warn about such typical errors. First it takes an attempt to find out what the actual keyword argument names are, either matching bytecode patterns in the output of `dis.get_instructions()` on Python >3.4 or falling back to applying regular expressions on `inspect.getsourcelines()`. Then it builds the matrix of differences between those "real" names and the names which were actually passed in. The difference is calculated with [Damerau–Levenshtein distance](http://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance) algorithm and the excellent [pyxDamerauLevenshtein](https://github.com/gfairchild/pyxDamerauLevenshtein) library. Last, it warns about given args which are not similar to anything and similar to something.
 
 ### How to use
 
